@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light  p-2">
                 <div className="container">
-                    <a className="navbar-brand" href="#">StartBootstrap</a>
+                    <Link className="navbar-brand" to="/">StartBootstrap</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -13,10 +14,13 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto align-items-center">
                             <li className="nav-item active">
-                                <a className="nav-link" href="#">Features <span className="sr-only">(current)</span></a>
+                                <Link className="nav-link" to="/about">About<span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Download</a>
+                                <Link className="nav-link" to="/download">Download</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/contact">Contact</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">
