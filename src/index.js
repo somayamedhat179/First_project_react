@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import AllDownload from "./Download/AllDownload";
 import AllContact from "./Contact/AllContact";
+import AllPrivacy from "./products/AllProducts";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "contact",
     element: <AllContact/>,
+  },
+  {
+    path: "products",
+    element: <AllPrivacy/>,
   },
 ]);
 
