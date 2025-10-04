@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../Home/Navbar";
+import { Link } from "react-router-dom";
+
+import { apiValue } from "../Data/AllData";
 
 function AllPrivacy() {
-  const [text, setText] = useState([]);
-  const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((result) => {
-        return result.json();
-      })
-      .then((JSON) => {
-        setText(JSON.products);
-      });
-  }, []);
+  const [search, setSearch] = useState("");
+  const data = useContext(apiValue) ;
+
 
   const getSearch = (event) => {
     setSearch(event.target.value);
@@ -31,7 +26,7 @@ function AllPrivacy() {
           <div className="col-md-10">
             <input onChange={getSearch} className="form-control pl-3" placeholder="Search"></input>
           </div>
-          {text.map((element) => {
+          {data.map((element) => {
             return search === "" ? (
               <div className="col-md-4 text-center mb-4">
                 <img src={element.images[0]} className="w-100"></img>
@@ -41,6 +36,7 @@ function AllPrivacy() {
                 <h5>{element.rating} of 5</h5>
                 <h5>{element.price}$</h5>
                 <h5>{element.id}</h5>
+                <Link to={`/singleProduct/${element.id}`} className="btn btn-dark" >Details</Link> 
               </div>
             ) : element.id == search ? (
               <div className="col-md-4 text-center mb-4">
@@ -51,6 +47,7 @@ function AllPrivacy() {
                 <h5>{element.rating} of 5</h5>
                 <h5>{element.price}$</h5>
                 <h5>{element.id}</h5>
+                <Link to={`/singleProduct/${element.id}`} className="btn btn-dark" >Details</Link> 
               </div>
             ) : element.title.toLowerCase().includes(search.toLowerCase())? (
               <div className="col-md-4 text-center mb-4">
@@ -61,6 +58,7 @@ function AllPrivacy() {
                 <h5>{element.rating} of 5</h5>
                 <h5>{element.price}$</h5>
                 <h5>{element.id}</h5>
+                <Link to={`/singleProduct/${element.id}`} className="btn btn-dark" >Details</Link> 
               </div>
             ) : null;
           })}

@@ -1,7 +1,7 @@
 function Device() {
     return (
         <div>
-            <div class="device">
+            <div class="device" id="devices">
                 <div class="contianer">
                     <div class="row align-content-center d-flex">
                         <div class="col-md-5">
